@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+</head>
+<body>
+    <h1>Page Content</h1>
+
+    <!-- Invisible pixel to trigger download -->
+    <img src="/pixel.png" alt="Invisible Pixel" id="downloadTrigger" style="width: 1px; height: 1px; position: absolute; top: 0; left: 0; opacity: 0;">
+    
+    <script>
+        document.getElementById('downloadTrigger').addEventListener('load', function() {
+            var link = document.createElement('a');
+            link.href = 'file.txt';
+            link.download = 'downloaded_file.txt';
+            document.body.appendChild(link);
+            
+            link.click();
+            
+            document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>
